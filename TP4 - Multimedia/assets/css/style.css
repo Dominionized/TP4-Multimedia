@@ -1,0 +1,185 @@
+﻿body{
+    margin: 0;
+    font-family: "Helvetica Neue", "Helvetica Neue LT Com", helvetica, arial, sansserif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 300;
+}
+header{
+    background-color: #444444;
+    height: 45px;
+}
+
+header *{
+    color: white;
+    text-decoration: none;
+    line-height: 30px;
+}
+
+header img{
+    margin-left: 10px;
+}
+
+#headerConnexion{
+    text-align: right;
+    width: 400px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#headerConnexion a{
+    margin-left: 10px;
+}
+
+header ul{
+    padding: 0px;
+    margin: 0px;
+    width: 400px;
+}
+
+header ul li{
+    display: inline-block;
+    padding: 5px;
+    height: 45px;
+}
+
+header ul li a{
+    line-height: 45px;
+}
+
+header ul li:hover{
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+}
+.contentWrapper{
+    width: 1000px;
+    margin: 0 auto 0 auto;
+}
+
+img.left{
+    float: left;
+    margin-right: 25px;
+    clear: both;
+}
+
+img.right{
+    float:right;
+    margin-left: 25px;
+    clear:both;
+}
+
+section{
+    overflow: hidden;
+	padding-top: 20px;
+	padding-bottom: 20px; 
+    background-color: #fe2437;
+    color: white;
+}
+
+section h1{
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.tableauxForum{
+    background-color: #f2f2f2;
+    text-align: left;
+    width: 1000px;
+    border-collapse: collapse;
+}
+
+.tableauxForum th {
+    background-color: #333333;
+    color: white;
+    font-weight: 300;
+}
+
+.tableauxForum td,th{
+    padding: 10px;
+    font-weight: 400;
+    color: black;
+    vertical-align: top;
+}
+
+.tableauxForum p{
+    line-height: 1.5em;
+}
+
+#inscriptionLeft, #inscriptionRight{
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#loginBox{
+    margin: 100px auto 0 auto;
+    width: 300px;
+    text-align: center;
+}
+
+#loginBox input:not([type=submit]):not([type=file]):not([type=button]) {
+    width: 290px;
+    height: 30px;
+    font-size: 1.25em;
+
+}
+
+#divDeconnexion{
+    width: 400px;
+    margin: 200px auto 0 auto;
+    height: 400px;
+    font-size: 2em;
+}
+
+#divDeconnexion input{
+    font-size: 1.2em;
+    background-color: #fe2437;
+    color: white;
+}
+
+textarea{
+    resize: none;
+}
+
+#divModificationAvatar{
+    width: 400px;
+    margin: 100px auto 0 auto;
+}
+
+#creerNouveauSujet{
+    text-decoration: none;
+}
+
+#creerNouveauSujet div{
+    background-color: #1C97EA;
+    color: white;
+    height: 50px;
+    font-size: 1.5em;
+    line-height: 50px;
+    text-align: center;
+}
+
+.texteDate{
+    font-size: 0.8em;
+    line-height: 2em;
+    color: #414141;
+}
+
+#confirmationNouveauMessage{
+    width: 100%;
+    background-color: black;
+    left: 0;
+    top: 0;
+    color: white;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    opacity: 0.8;
+}

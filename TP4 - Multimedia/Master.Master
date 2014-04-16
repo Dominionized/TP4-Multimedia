@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="TP4_Multimedia.Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Forum Weak End</title>
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header>
+        <div class="contentWrapper">
+            <nav>
+                <ul>
+                    <li><a href="Accueil.aspx">Accueil</a></li>
+                    <li><a href="Sujets.aspx">Forum</a></li>
+                </ul>
+                <div id="headerConnexion">
+                    <%if (Session["Courriel"] != null)
+                      {
+                          pseudoHeader.Text = (string)Session["nomUtilisateur"];
+                          avatarHeader.ImageUrl = (string)Session["pathAvatar"];
+                    %>
+                    <asp:HyperLink runat="server" ID="pseudoHeader" NavigateUrl="~/ModificationAvatar.aspx" ToolTip="Modifier mon avatar"></asp:HyperLink>
+                    <asp:Image runat="server" ID="avatarHeader" Width="30" Height="30" />
+                    <a href="Deconnexion.aspx">Se déconnecter</a>
+                    <%}
+                      else
+                      {%>
+
+                    <a href="Connexion.aspx">Se connecter</a>
+                    <a href="Inscription.aspx">S'inscrire</a>
+                    <%} %>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer>
+    </footer>
+</body>
+</html>
