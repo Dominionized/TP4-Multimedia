@@ -4,6 +4,11 @@
 
 Vous n'avez pas le droit de copier ceci, so be careful, bitch !
 
+    int main(){
+    bool fucker = true;
+    return (int)fucker;
+    }
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet suscipit mauris. Integer et urna sit amet lacus suscipit faucibus. Cras laoreet massa ac purus porttitor, ut porta augue vulputate. Cras sapien dolor, volutpat sed metus egestas, volutpat aliquet risus. In hac habitasse platea dictumst. Praesent tincidunt, libero rutrum consectetur mattis, lorem magna vestibulum enim, aliquam lacinia nibh enim in nulla. Cras id elit eget tellus tincidunt cursus nec at purus. Nam aliquet vitae orci id tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
 Ut interdum nisi id nunc adipiscing malesuada. Nullam at bibendum erat, eget volutpat urna. Curabitur ultrices scelerisque vehicula. Integer at metus sit amet justo fringilla dapibus. Pellentesque in lacus lorem. Ut congue sollicitudin mi sed euismod. Maecenas vel sem commodo, tempus nibh et, dictum justo. Vivamus convallis vitae eros sed fermentum. Sed mauris dui, dignissim nec odio in, ornare feugiat ante. Donec quis dictum nisl, et facilisis justo. Mauris ut condimentum ipsum, ac posuere dolor.
