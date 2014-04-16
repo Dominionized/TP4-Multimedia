@@ -10,6 +10,9 @@
             <p>
                 Nous sommes des très gentils marins informatiques, toujours prêts à faire le bien pour aider nos compatriotes ! Nous ne pratiquons, ahem, en aucun cas toute sorte de, ahem, piraterie ! Venez nous joindre sur nos <a href="Sujets.aspx">forums</a> dès maintenant ! ... S'il vous plait ?
             </p>
+            <p>
+                THIS IS SOME FREAKIN' RUBBISH DUUUDe
+            </p>
         </div>
     </section>
 </asp:Content>
