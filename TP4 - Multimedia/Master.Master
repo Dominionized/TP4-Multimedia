@@ -17,6 +17,7 @@
                 <ul>
                     <li><a href="Accueil.aspx">Accueil</a></li>
                     <li><a href="Sujets.aspx">Forum</a></li>
+                    <li><a href="Nouvelles.aspx">Nouvelles</a></li>
                 </ul>
                 <div id="headerConnexion">
                     <%if (Session["Courriel"] != null)
