@@ -24,7 +24,7 @@ namespace TP4_Multimedia
                 OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand("SELECT pseudonyme, avatar FROM utilisateurs WHERE adresse_courriel = @adresse_courriel;", connection);
+                OleDbCommand command = new OleDbCommand("SELECT pseudonyme, avatar, admin, modo FROM utilisateurs WHERE adresse_courriel = @adresse_courriel;", connection);
                 command.Parameters.Add(new OleDbParameter("adresse_courriel", txtCourriel.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Prepare();
 
@@ -33,6 +33,8 @@ namespace TP4_Multimedia
                 {
                     Session["nomUtilisateur"] = (string)dataReader[0];
                     Session["pathAvatar"] = "avatars/" + (string)dataReader[1];
+                    Session["Admin"] = (bool)dataReader[2];
+                    Session["Moderateur"] = (bool)dataReader[3];
                 }
 
                 connection.Close();
