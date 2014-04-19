@@ -26,7 +26,7 @@ namespace TP4_Multimedia
             {
                 conteneurNouvelles.Text += "<div class=\"divNouvelle\">";
                 conteneurNouvelles.Text += "<a href\"Article.aspx?ID=" + (int)dataReader[0] + "\"><h2>" + (string)dataReader[1] + "</h2></a>";
-                conteneurNouvelles.Text += "<h3><img src=\"avatars/" + (string)dataReader[5] + "\"/>&nbsp;" + (string)dataReader[3] + ", le " + ((DateTime)dataReader[4]).ToLongDateString() + ".</h3>";
+                conteneurNouvelles.Text += "<span class=\"date-auteur\"><img src=\"avatars/" + (string)dataReader[5] + "\"/>&nbsp;" + (string)dataReader[3] + ", le " + ((DateTime)dataReader[4]).ToLongDateString() + " à " + ((DateTime)dataReader[4]).ToShortTimeString() + ".</span><br/>";
                 conteneurNouvelles.Text += "<p>";
                 if (((string)dataReader[2]).Length > nbCaracteresMax)
                 {

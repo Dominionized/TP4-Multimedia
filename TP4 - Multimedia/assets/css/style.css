@@ -189,12 +189,12 @@ textarea{
     margin-bottom: 15px;
     border-radius: 4px;
     padding: 10px;
-    line-height: 1.5em;
 }
 
 .divNouvelle img{
     width: 1.5em;
     height: 1.5em;
+    vertical-align: middle;
 }
 
 .divNouvelle h3{
@@ -203,4 +203,8 @@ textarea{
 
 .divNouvelle p{
     font-family: "Vollkorn Regular";
+}
+
+.divNouvelle date-auteur{
+    line-height: 1.5em;
 }

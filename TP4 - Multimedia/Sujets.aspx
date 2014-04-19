@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="contentSujets" ContentPlaceHolderID="content" runat="server">
     <div class="contentWrapper">
+        <h1>Forums</h1>
         <a href="NouveauSujet.aspx" id="creerNouveauSujet">
             <div>Créer un nouveau sujet</div>
         </a>
