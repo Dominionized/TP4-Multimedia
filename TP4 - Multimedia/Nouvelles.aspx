@@ -9,6 +9,6 @@
           { %>
         <asp:Button runat="server" ID="btnAjouterNouvelle" Text="Ajouter une nouvelle" /><br />
         <%} %>
-        <asp:Literal runat="server" ID="tblNouvelles"></asp:Literal>
+        <asp:Literal runat="server" ID="conteneurNouvelles"></asp:Literal>
     </div>
 </asp:Content>
