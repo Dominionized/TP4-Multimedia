@@ -13,6 +13,33 @@ namespace TP4_Multimedia {
     public partial class Nouvelles {
         
         /// <summary>
+        /// conteneurNouvelles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal conteneurNouvelles;
+        
+        /// <summary>
+        /// txtNouvelleTitre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNouvelleTitre;
+        
+        /// <summary>
+        /// txtNouvelle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNouvelle;
+        
+        /// <summary>
         /// btnAjouterNouvelle control.
         /// </summary>
         /// <remarks>
@@ -22,12 +49,12 @@ namespace TP4_Multimedia {
         protected global::System.Web.UI.WebControls.Button btnAjouterNouvelle;
         
         /// <summary>
-        /// conteneurNouvelles control.
+        /// txtNouvelleValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal conteneurNouvelles;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtNouvelleValidator;
     }
 }
