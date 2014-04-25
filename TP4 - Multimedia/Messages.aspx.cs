@@ -96,17 +96,17 @@ namespace TP4_Multimedia
             OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand("UPDATE sujets SET closed= true WHERE ID=@id", connection);
+            OleDbCommand command = new OleDbCommand("UPDATE sujets SET isclosed= true WHERE ID=@id", connection);
             command.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
             command.Prepare();
             command.ExecuteNonQuery();
 
-            OleDbCommand command1 = new OleDbCommand("SELECT closed FROM sujets WHERE ID=@id", connection);
+            OleDbCommand command1 = new OleDbCommand("SELECT isclosed FROM sujets WHERE ID=@id", connection);
             command1.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
             OleDbDataReader dataReader = command.ExecuteReader();
             if (dataReader.Read())
             {
-                Session["isClosed"] = (bool)dataReader["closed"];
+                Session["isClosed"] = (bool)dataReader["isclosed"];
             }
            
         }
