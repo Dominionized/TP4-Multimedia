@@ -38,6 +38,8 @@ namespace TP4_Multimedia
 
                 txtNouvelle.Text = "";
 
+                Response.Redirect("Nouvelles.aspx");
+
             }
         }
 

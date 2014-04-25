@@ -193,7 +193,7 @@ textarea{
     padding: 10px;
 }
 
-.divNouvelle img{
+.divNouvelle img, img.article{
     width: 1.5em;
     height: 1.5em;
     vertical-align: middle;

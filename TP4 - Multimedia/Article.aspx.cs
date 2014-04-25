@@ -34,7 +34,7 @@ namespace TP4_Multimedia
             if (dataReader.Read())
             {
                 articleContent.Text += "<h1>" + (string)dataReader[0] + "</h1>";
-                articleContent.Text += "<span class=\"date-auteur\"><img src=\"avatars/" + (string)dataReader[4] + "\"/>&nbsp;" + (string)dataReader[2] + ", le " + ((DateTime)dataReader[3]).ToLongDateString() + " à " + ((DateTime)dataReader[3]).ToShortTimeString() + ".</span><br/>";
+                articleContent.Text += "<span class=\"date-auteur\"><img src=\"avatars/" + (string)dataReader[4] + "\" class=\"article\"/>&nbsp;" + (string)dataReader[2] + ", le " + ((DateTime)dataReader[3]).ToLongDateString() + " à " + ((DateTime)dataReader[3]).ToShortTimeString() + ".</span><br/>";
                 articleContent.Text += "<p class=\"article\">" + dataReader[1].ToString().Replace("\r\n", "<br />") + "</p>";
             }
             else
