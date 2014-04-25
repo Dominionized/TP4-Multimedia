@@ -10,6 +10,7 @@
         Mot de passe<br />
         <asp:TextBox runat="server" ID="txtPassword" type="password"></asp:TextBox><br />
         <asp:CustomValidator runat="server" ID="validateEmailPassword" OnServerValidate="validateEmailPassword_ServerValidate" ErrorMessage="Le courriel ou le mot de passe sont invalides"></asp:CustomValidator><br />
+        <asp:CustomValidator runat="server" ID="validateBanStatus" OnServerValidate="validateBannedStatus_ServerValidate" ErrorMessage="Vous avez été banni"></asp:CustomValidator><br />
         <asp:Button runat="server" ID="btnConnect" Text="Connexion" OnClick="btnConnect_Click" />
     </div>
 </asp:Content>

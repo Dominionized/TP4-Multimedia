@@ -64,5 +64,30 @@ namespace TP4_Multimedia
                 args.IsValid = false;
             }
         }
+        protected void validateBannedStatus_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("SELECT banned FROM utilisateurs WHERE adresse_courriel = @adresse_courriel");
+            command.Parameters.Add(new OleDbParameter("adresse_courriel", txtCourriel.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
+            command.Parameters.Add(new OleDbParameter("banned", Session["bannedStatus"]) { OleDbType = OleDbType.Boolean });
+
+            OleDbDataReader dataReader = command.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                if ((bool)Session["bannedStatus"] == true)
+                {
+                    args.IsValid = true;
+                    return;
+                }
+            }
+            else
+            {
+                args.IsValid = false;
+                return;
+            }
+        }
     }
 }
