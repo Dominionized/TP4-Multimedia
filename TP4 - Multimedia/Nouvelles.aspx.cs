@@ -43,26 +43,7 @@ namespace TP4_Multimedia
             }
         }
 
-        protected void btnAjouterNouvelle_Click(object sender, EventArgs e)
-        {
-            if (IsValid)
-            {
-                OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
-                connection.Open();
-
-                OleDbCommand command = new OleDbCommand("INSERT INTO nouvelles (titre, contenu, auteur) VALUES (@titre, @corpsNouvelle,@nomUtilisateur);", connection);
-                command.Parameters.Add(new OleDbParameter("titre", txtNouvelleTitre.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
-                command.Parameters.Add(new OleDbParameter("corpsNouvelle", txtNouvelle.Text) { OleDbType = OleDbType.LongVarChar, Size = 255 });
-                command.Parameters.Add(new OleDbParameter("nomUtilisateur", Session["nomUtilisateur"]) { OleDbType = OleDbType.VarChar, Size = 255 });
-                command.Prepare();
-                command.ExecuteNonQuery();
-
-                connection.Close();
-
-                txtNouvelle.Text = "";
-
-            }
-        }
+        
 
     }
 }

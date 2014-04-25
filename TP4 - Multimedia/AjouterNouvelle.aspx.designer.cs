@@ -10,16 +10,34 @@
 namespace TP4_Multimedia {
     
     
-    public partial class Nouvelles {
+    public partial class WebForm10 {
         
         /// <summary>
-        /// conteneurNouvelles control.
+        /// txtNouvelleTitre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal conteneurNouvelles;
+        protected global::System.Web.UI.WebControls.TextBox txtNouvelleTitre;
+        
+        /// <summary>
+        /// txtNouvelle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNouvelle;
+        
+        /// <summary>
+        /// txtNouvelleValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtNouvelleValidator;
         
         /// <summary>
         /// btnAjouterNouvelle control.
