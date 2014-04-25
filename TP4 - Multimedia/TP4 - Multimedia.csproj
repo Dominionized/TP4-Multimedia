@@ -190,6 +190,7 @@
     </Compile>
     <Compile Include="Administration.aspx.designer.cs">
       <DependentUpon>Administration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Article.aspx.cs">
       <DependentUpon>Article.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
