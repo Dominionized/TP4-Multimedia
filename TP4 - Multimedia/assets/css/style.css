@@ -1,4 +1,6 @@
-﻿body{
+﻿@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+
+body{
     margin: 0;
     font-family: "Helvetica Neue", "Helvetica Neue LT Com", helvetica, arial, sansserif;
 }
@@ -202,9 +204,17 @@ textarea{
 }
 
 .divNouvelle p{
-    font-family: "Vollkorn Regular";
+    font-family: "Vollkorn", georgia, serif;
 }
 
 .divNouvelle date-auteur{
     line-height: 1.5em;
+}
+
+p.article{
+    font-family: "Vollkorn", georgia, serif;
+    font-size: 20px;
+    line-height: 150%;
+    width: 700px;
+    color: #2c2c2c;
 }

@@ -2,4 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="contentArticle" ContentPlaceHolderID="content" runat="server">
+    <div class="contentWrapper">
+        <asp:Literal runat="server" ID="articleContent"></asp:Literal>
+    </div>
 </asp:Content>
