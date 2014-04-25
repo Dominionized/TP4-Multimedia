@@ -14,7 +14,7 @@ namespace TP4_Multimedia
     {
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            int nbCaracteresMax = 250;
+            const int nbCaracteresMax = 250;
             conteneurNouvelles.Text = "";
             OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
             connection.Open();
