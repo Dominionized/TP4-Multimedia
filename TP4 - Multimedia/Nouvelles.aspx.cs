@@ -43,6 +43,11 @@ namespace TP4_Multimedia
             }
         }
 
+        protected void btnAjouterNouvelle_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("AjouterNouvelle.aspx");
+        }
+
         
 
     }

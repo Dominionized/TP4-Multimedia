@@ -5,11 +5,11 @@
 <asp:Content ID="contentNouvelles" ContentPlaceHolderID="content" runat="server">
     <div class="contentWrapper">
         <h1>Nouvelles</h1>
-        <asp:Literal runat="server" ID="conteneurNouvelles"></asp:Literal>
         <%if (Session["Courriel"] != null && (bool)Session["Moderateur"] == true) // Si l'utilisateur est un modo
           { %>
-
-        <asp:Button runat="server" ID="btnAjouterNouvelle" Text="Ajouter une nouvelle" OnClick="btnAjouterNouvelle_Click" /><br />
+        <asp:Button runat="server" ID="btnAjouterNouvelle" Text="Ajouter une nouvelle" OnClick="btnAjouterNouvelle_Click" /><br /><br />
         <%} %>
+
+        <asp:Literal runat="server" ID="conteneurNouvelles"></asp:Literal>
     </div>
 </asp:Content>
