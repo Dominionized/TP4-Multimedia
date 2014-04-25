@@ -24,7 +24,7 @@ namespace TP4_Multimedia
             while (dataReader.Read())
             {
                 tblSujets.Text += "<tr>";
-                tblSujets.Text += "<td width=\"60%\"><a href=\"Messages.aspx?ID=" + dataReader[0].ToString() + "\">" + (string)dataReader[1] + "</a></td>"; // Lien
+                tblSujets.Text += "<td width=\"50%\"><a href=\"Messages.aspx?ID=" + dataReader[0].ToString() + "\">" + (string)dataReader[1] + "</a></td>"; // Lien
                 tblSujets.Text += "<td width=\"20%\">" + (string)dataReader[2] + "</td>";
                 tblSujets.Text += "<td width=\"20%\">" + dataReader[3].ToString() + "</td>";
                 tblSujets.Text += "</tr>";

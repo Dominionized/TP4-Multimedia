@@ -14,6 +14,11 @@ namespace TP4_Multimedia
     {
         protected void Page_PreRender(object sender, EventArgs e)
         {
+            btnCloseSujet.Visible = false;
+            if ((bool)Session["Admin"] == true)
+            {
+                btnCloseSujet.Visible = true;
+            }
             int parseResult;
             if (Request.QueryString["ID"] == null || int.TryParse(Request.QueryString["ID"], out parseResult) == false)
             {
@@ -84,6 +89,26 @@ namespace TP4_Multimedia
                 txtNouveauMessage.Text = "";
 
             }
+        }
+
+        protected void btnCloseSujet_Click(object sender, EventArgs e)
+        {
+            OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("UPDATE sujets SET closed= true WHERE ID=@id", connection);
+            command.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
+            command.Prepare();
+            command.ExecuteNonQuery();
+
+            OleDbCommand command1 = new OleDbCommand("SELECT closed FROM sujets WHERE ID=@id", connection);
+            command1.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
+            OleDbDataReader dataReader = command.ExecuteReader();
+            if (dataReader.Read())
+            {
+                Session["isClosed"] = (bool)dataReader["closed"];
+            }
+           
         }
     }
 }
