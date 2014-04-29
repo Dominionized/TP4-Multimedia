@@ -19,7 +19,7 @@ namespace TP4_Multimedia
 
         protected void btnConnect_Click(object sender, EventArgs e)
         {
-            if (IsValid) // Le validateur valide si le courriel correspond au mot de passe et si l'utilisateur n'est pas banni.
+            if (IsValid) // Le validateur valide si le courriel correspond au mot de passe.
             {
                 OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
                 connection.Open();
@@ -50,14 +50,13 @@ namespace TP4_Multimedia
             OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand("SELECT adresse_courriel, mot_de_passe, banned FROM utilisateurs WHERE adresse_courriel=@adresse_courriel AND mot_de_passe=@mot_de_passe;", connection);
+            OleDbCommand command = new OleDbCommand("SELECT adresse_courriel, mot_de_passe FROM utilisateurs WHERE adresse_courriel=@adresse_courriel AND mot_de_passe=@mot_de_passe;", connection);
             command.Parameters.Add(new OleDbParameter("adresse_courriel", txtCourriel.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
             command.Parameters.Add(new OleDbParameter("mot_de_passe", txtPassword.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
-            command.Parameters.Add(new OleDbParameter("banned", Session["bannedStatus"]) { OleDbType = OleDbType.Boolean });
 
             OleDbDataReader dataReader = command.ExecuteReader();
 
-            if (dataReader.Read() && (bool)Session["bannedStatus"] == false)
+            if (dataReader.Read())
             {
                 args.IsValid = true;
                 return;
@@ -65,6 +64,31 @@ namespace TP4_Multimedia
             else
             {
                 args.IsValid = false;
+            }
+        }
+        protected void validateBannedStatus_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
+            connection.Open();
+
+            OleDbCommand command = new OleDbCommand("SELECT banned FROM utilisateurs WHERE adresse_courriel = @adresse_courriel");
+            command.Parameters.Add(new OleDbParameter("adresse_courriel", txtCourriel.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
+            command.Parameters.Add(new OleDbParameter("banned", Session["bannedStatus"]) { OleDbType = OleDbType.Boolean });
+
+            OleDbDataReader dataReader = command.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                if ((bool)Session["bannedStatus"] == true)
+                {
+                    args.IsValid = true;
+                    return;
+                }
+            }
+            else
+            {
+                args.IsValid = false;
+                return;
             }
         }
     }
