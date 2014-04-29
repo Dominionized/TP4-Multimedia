@@ -29,7 +29,7 @@ namespace TP4_Multimedia
 
                 OleDbCommand command = new OleDbCommand("INSERT INTO nouvelles (titre, contenu, auteur) VALUES (@titre, @corpsNouvelle,@nomUtilisateur);", connection);
                 command.Parameters.Add(new OleDbParameter("titre", txtNouvelleTitre.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
-                command.Parameters.Add(new OleDbParameter("corpsNouvelle", txtNouvelle.Text) { OleDbType = OleDbType.LongVarChar, Size = 255 });
+                command.Parameters.Add(new OleDbParameter("corpsNouvelle", txtNouvelle.Text) { OleDbType = OleDbType.LongVarChar, Size = 10000 });
                 command.Parameters.Add(new OleDbParameter("nomUtilisateur", Session["nomUtilisateur"]) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Prepare();
                 command.ExecuteNonQuery();
