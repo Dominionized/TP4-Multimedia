@@ -40,15 +40,6 @@ namespace TP4_Multimedia {
         protected global::System.Web.UI.WebControls.CustomValidator validateEmailPasswordBanned;
         
         /// <summary>
-        /// validateBanStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validateBanStatus;
-        
-        /// <summary>
         /// btnConnect control.
         /// </summary>
         /// <remarks>
