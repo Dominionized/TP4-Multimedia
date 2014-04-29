@@ -12,7 +12,7 @@ namespace TP4_Multimedia
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_PreRender(object sender, EventArgs e)
         {
             tblSujets.Text += "<table class=\"tableauxForum\"><tr><th></th><th>Titre du sujet</th><th>Pseudonyme de l'auteur</th><th>Date de création</th></tr>";
             OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);

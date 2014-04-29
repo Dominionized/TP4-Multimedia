@@ -15,6 +15,8 @@ namespace TP4_Multimedia
         protected void Page_PreRender(object sender, EventArgs e)
         {
             int idSujet = int.Parse(Request.QueryString["ID"]);
+            bool isClosed = false;
+            btnCloseSujet.Visible = false;
 
             tblMessages.Text = "";
             tblMessages.Text += "<table class=\"tableauxForum\">";
@@ -38,43 +40,24 @@ namespace TP4_Multimedia
             }
             tblMessages.Text += "</table>";
 
-            command = new OleDbCommand("SELECT nom_sujet FROM sujets WHERE ID = @id;", connection);
+            command = new OleDbCommand("SELECT nom_sujet, isclosed FROM sujets WHERE ID = @id;", connection);
             command.Parameters.Add(new OleDbParameter("id", idSujet) { OleDbType = OleDbType.Integer, Size = 255 });
             dataReader = command.ExecuteReader();
-
             if (dataReader.Read())
             {
                 lblTitreSujet.Text = dataReader[0].ToString();
-            }
-
-            connection.Close();
-
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            bool isClosed = false;
-            btnCloseSujet.Visible = false;
-
-            OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
-            connection.Open();
-
-            OleDbCommand command1 = new OleDbCommand("SELECT isclosed FROM sujets WHERE ID=@id", connection);
-            command1.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
-            OleDbDataReader dataReader = command1.ExecuteReader();
-            if (dataReader.Read())
-            {
                 isClosed = (bool)dataReader["isclosed"];
             }
-
-
+            connection.Close();
             if (isClosed == true)
             {
                 messagePost.Visible = false;
+                btnCloseSujet.Text = "Ouvrir le sujet";
             }
             else
             {
                 messagePost.Visible = true;
+                btnCloseSujet.Text = "Fermer le sujet";
             }
 
             if ((bool)Session["Admin"] == true)
@@ -123,7 +106,6 @@ namespace TP4_Multimedia
             OleDbCommand command1 = new OleDbCommand("SELECT isclosed FROM sujets WHERE ID=@id", connection);
             command1.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
             OleDbDataReader dataReader = command1.ExecuteReader();
-
             if (dataReader.Read())
             {
                 isClosed = (bool)dataReader["isclosed"];
@@ -131,7 +113,6 @@ namespace TP4_Multimedia
 
             if (isClosed == false)
             {
-                btnCloseSujet.Text = "Ouvrir le sujet";
                 OleDbCommand command = new OleDbCommand("UPDATE sujets SET isclosed = TRUE WHERE ID=@id", connection);
                 command.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Prepare();
@@ -139,7 +120,6 @@ namespace TP4_Multimedia
             }
             else
             {
-                btnCloseSujet.Text = "Fermer le sujet";
                 OleDbCommand command = new OleDbCommand("UPDATE sujets SET isclosed = FALSE WHERE ID=@id", connection);
                 command.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Prepare();
