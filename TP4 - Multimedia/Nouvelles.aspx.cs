@@ -41,6 +41,8 @@ namespace TP4_Multimedia
                 conteneurNouvelles.Text += "</div>";
 
             }
+
+            connection.Close();
         }
 
         protected void btnAjouterNouvelle_Click(object sender, EventArgs e)
