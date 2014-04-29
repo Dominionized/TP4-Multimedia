@@ -5,7 +5,7 @@
     <div class="contentWrapper">
         <h1>Ajouter une nouvelle</h1>
         Titre de la nouvelle :<br />
-        <asp:TextBox ID="txtNouvelleTitre" runat="server" Width="400"></asp:TextBox><br />
+        <asp:TextBox ID="txtNouvelleTitre" runat="server" Width="400" MaxLength="140"></asp:TextBox><br />
         Corps :<br />
         <asp:TextBox ID="txtNouvelle" TextMode="MultiLine" runat="server" Height="500" Width="800"></asp:TextBox><br />
         <asp:RequiredFieldValidator ID="txtNouvelleValidator" runat="server" ControlToValidate="txtNouvelle" ErrorMessage="La nouvelle ne doit pas être vide"></asp:RequiredFieldValidator><br />
