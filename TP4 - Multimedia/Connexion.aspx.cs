@@ -45,12 +45,16 @@ namespace TP4_Multimedia
             }
         }
 
-        protected void validateEmailPassword_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void validateEmailPasswordBanned_ServerValidate(object source, ServerValidateEventArgs args)
         {
             OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
             connection.Open();
 
+<<<<<<< HEAD
             OleDbCommand command = new OleDbCommand("SELECT adresse_courriel, mot_de_passe FROM utilisateurs WHERE adresse_courriel=@adresse_courriel AND mot_de_passe=@mot_de_passe;", connection);
+=======
+            OleDbCommand command = new OleDbCommand("SELECT adresse_courriel, mot_de_passe FROM utilisateurs WHERE adresse_courriel=@adresse_courriel AND mot_de_passe=@mot_de_passe AND banned=FALSE;", connection);
+>>>>>>> origin/master
             command.Parameters.Add(new OleDbParameter("adresse_courriel", txtCourriel.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
             command.Parameters.Add(new OleDbParameter("mot_de_passe", txtPassword.Text) { OleDbType = OleDbType.VarChar, Size = 255 });
 
