@@ -31,22 +31,13 @@ namespace TP4_Multimedia {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// validateEmailPassword control.
+        /// validateEmailPasswordBanned control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validateEmailPassword;
-        
-        /// <summary>
-        /// validateBanStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validateBanStatus;
+        protected global::System.Web.UI.WebControls.CustomValidator validateEmailPasswordBanned;
         
         /// <summary>
         /// btnConnect control.
