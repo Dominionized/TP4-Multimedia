@@ -14,17 +14,6 @@ namespace TP4_Multimedia
     {
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            btnCloseSujet.Visible = false;
-            if ((bool)Session["Admin"] == true)
-            {
-                btnCloseSujet.Visible = true;
-            }
-            int parseResult;
-            if (Request.QueryString["ID"] == null || int.TryParse(Request.QueryString["ID"], out parseResult) == false)
-            {
-                Response.Redirect("Sujets.aspx");
-            }
-
             int idSujet = int.Parse(Request.QueryString["ID"]);
 
             tblMessages.Text = "";
@@ -62,6 +51,39 @@ namespace TP4_Multimedia
 
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            bool isClosed = false;
+            btnCloseSujet.Visible = false;
+
+            OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
+            connection.Open();
+
+            OleDbCommand command1 = new OleDbCommand("SELECT isclosed FROM sujets WHERE ID=@id", connection);
+            command1.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
+            OleDbDataReader dataReader = command1.ExecuteReader();
+            if (dataReader.Read())
+            {
+                isClosed = (bool)dataReader["isclosed"];
+            }
+
+
+            if (isClosed == true)
+            {
+                messagePost.Visible = false;
+            }
+            else
+            {
+                messagePost.Visible = true;
+            }
+
+            if ((bool)Session["Admin"] == true)
+            {
+                btnCloseSujet.Visible = true;
+            }
+
+        }
+
         protected void btnSubmitNouveauMessage_Click(object sender, EventArgs e)
         {
             if (IsValid)
@@ -93,22 +115,38 @@ namespace TP4_Multimedia
 
         protected void btnCloseSujet_Click(object sender, EventArgs e)
         {
+            bool isClosed = false;
+
             OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
             connection.Open();
 
-            OleDbCommand command = new OleDbCommand("UPDATE sujets SET isclosed= true WHERE ID=@id", connection);
-            command.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
-            command.Prepare();
-            command.ExecuteNonQuery();
-
             OleDbCommand command1 = new OleDbCommand("SELECT isclosed FROM sujets WHERE ID=@id", connection);
             command1.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
-            OleDbDataReader dataReader = command.ExecuteReader();
+            OleDbDataReader dataReader = command1.ExecuteReader();
+
             if (dataReader.Read())
             {
-                Session["isClosed"] = (bool)dataReader["isclosed"];
+                isClosed = (bool)dataReader["isclosed"];
             }
-           
+
+            if (isClosed == false)
+            {
+                btnCloseSujet.Text = "Ouvrir le sujet";
+                OleDbCommand command = new OleDbCommand("UPDATE sujets SET isclosed = TRUE WHERE ID=@id", connection);
+                command.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+            else
+            {
+                btnCloseSujet.Text = "Fermer le sujet";
+                OleDbCommand command = new OleDbCommand("UPDATE sujets SET isclosed = FALSE WHERE ID=@id", connection);
+                command.Parameters.Add(new OleDbParameter("id", Request.QueryString["ID"]) { OleDbType = OleDbType.VarChar, Size = 255 });
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+            Response.Redirect("Sujets.aspx");
         }
+
     }
 }
