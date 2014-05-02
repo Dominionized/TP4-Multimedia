@@ -25,6 +25,8 @@ namespace TP4_Multimedia
         {
             if (IsValid)
             {
+                MarkdownSharp.Markdown markdownator = new MarkdownSharp.Markdown();
+                string stringMessage = markdownator.Transform(txtCorpsPremierMessage.Text);
                 OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
                 connection.Open();
 
@@ -38,7 +40,7 @@ namespace TP4_Multimedia
                 int idNouveauSujet = Convert.ToInt32(command.ExecuteScalar()); // Trouver l'ID du dernier sujet ajouté
 
                 command = new OleDbCommand("INSERT INTO messages (message, auteur, sujet) VALUES (@message, @auteur, @sujet);", connection);
-                command.Parameters.Add(new OleDbParameter("message", txtCorpsPremierMessage.Text) { OleDbType = OleDbType.LongVarChar, Size = 255 });
+                command.Parameters.Add(new OleDbParameter("message", stringMessage) { OleDbType = OleDbType.LongVarChar, Size = 255 });
                 command.Parameters.Add(new OleDbParameter("auteur", Session["nomUtilisateur"]) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Parameters.Add(new OleDbParameter("sujet", idNouveauSujet) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Prepare();

@@ -212,11 +212,11 @@ textarea{
     line-height: 1.5em;
 }
 
-p.article{
+.article{
     font-family: "Vollkorn", georgia, serif;
     font-size: 20px;
     line-height: 150%;
-    width: 700px;
+    width: 800px;
     color: #2c2c2c;
 }
 

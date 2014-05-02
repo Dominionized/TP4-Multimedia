@@ -25,7 +25,7 @@
         </div>
         <asp:Button ID="btnCloseSujet" runat="server" Text="Fermer le sujet" OnClick="btnCloseSujet_Click" CausesValidation="false" />
     </div>
-    <%if (IsPostBack)
+    <%if (Request["NouveauMessage"] != null)
       { %>
     <script>
         $(document).ready(function () { $('#confirmationNouveauMessage').slideDown(); })

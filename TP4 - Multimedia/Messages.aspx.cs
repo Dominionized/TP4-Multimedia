@@ -79,11 +79,14 @@ namespace TP4_Multimedia
 
                 int idSujet = int.Parse(Request.QueryString["ID"]);
 
+                MarkdownSharp.Markdown markdownator = new MarkdownSharp.Markdown();
+                string stringMessage = markdownator.Transform(txtNouveauMessage.Text);
+
                 OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
                 connection.Open();
 
                 OleDbCommand command = new OleDbCommand("INSERT INTO messages (message, auteur, sujet) VALUES (@corpsNouveauMessage,@nomUtilisateur,@id);", connection);
-                command.Parameters.Add(new OleDbParameter("corpsNouveauMessage", txtNouveauMessage.Text) { OleDbType = OleDbType.LongVarChar, Size = 255 });
+                command.Parameters.Add(new OleDbParameter("corpsNouveauMessage", stringMessage) { OleDbType = OleDbType.LongVarChar, Size = 255 });
                 command.Parameters.Add(new OleDbParameter("nomUtilisateur", Session["nomUtilisateur"]) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Parameters.Add(new OleDbParameter("id", idSujet) { OleDbType = OleDbType.Integer, Size = 255 });
                 command.Prepare();
@@ -94,6 +97,7 @@ namespace TP4_Multimedia
                 txtNouveauMessage.Text = "";
 
             }
+            Response.Redirect("Messages.aspx?ID=" + Request["ID"] + "&NouveauMessage=Success");
         }
 
         protected void btnCloseSujet_Click(object sender, EventArgs e)
