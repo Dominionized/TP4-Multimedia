@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\lock.png" />
     <Content Include="assets\js\jquery-2.1.0.min.js" />
     <Content Include="avatars\fuckerduude20140401121712.png" />
     <Content Include="App_Data\database.accdb" />

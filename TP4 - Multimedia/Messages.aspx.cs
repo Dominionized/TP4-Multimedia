@@ -60,7 +60,7 @@ namespace TP4_Multimedia
                 btnCloseSujet.Text = "Fermer le sujet";
             }
 
-            if ((bool)Session["Admin"] == true)
+            if (Session["Admin"] != null && (bool)Session["Admin"] == true )
             {
                 btnCloseSujet.Visible = true;
             }
