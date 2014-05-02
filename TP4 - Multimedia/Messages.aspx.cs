@@ -125,6 +125,7 @@ namespace TP4_Multimedia
                 command.Prepare();
                 command.ExecuteNonQuery();
             }
+            connection.Close();
             Response.Redirect("Sujets.aspx");
         }
 
