@@ -5,9 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-// Nécéssaire pour pouvoir effectuer des requêtes à la base de données.
 using System.Data.OleDb;
-// Nécéssaire pour obtenir la chaîne de connection.
 using System.Configuration;
 
 namespace TP4_Multimedia
