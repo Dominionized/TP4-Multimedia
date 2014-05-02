@@ -14,6 +14,10 @@ namespace TP4_Multimedia
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Admin"] == null || (bool)Session["Admin"] == false)
+            {
+                Response.Redirect("Accueil.aspx");
+            }
         }
     }
 }

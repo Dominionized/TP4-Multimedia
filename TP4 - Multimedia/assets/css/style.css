@@ -90,20 +90,21 @@ section h1{
     margin-bottom: 0;
 }
 
-.tableauxForum{
+.tableauxForum, .gridView{
     background-color: #f2f2f2;
     text-align: left;
-    width: 1000px;
     border-collapse: collapse;
 }
-
-.tableauxForum th {
+.tableauxForum{
+    width: 1000px;
+}
+.tableauxForum th, .gridView th {
     background-color: #333333;
     color: white;
     font-weight: 300;
 }
 
-.tableauxForum td,th{
+.tableauxForum td, th{
     padding: 10px;
     font-weight: 400;
     color: black;
@@ -217,4 +218,8 @@ p.article{
     line-height: 150%;
     width: 700px;
     color: #2c2c2c;
+}
+
+.gridView{
+    width: 200px;
 }
