@@ -26,13 +26,13 @@ namespace TP4_Multimedia
                 tblSujets.Text += "<tr>";
                 if ((bool)dataReader["isclosed"] == true)
                 {
-                    tblSujets.Text += "<td width=\"5%\"><img src=\"~/assets/images/lock.png\" height=\"32\" width=\"32\"></td>";
+                    tblSujets.Text += "<td width=\"3%\"><img src=\"assets/images/lock.png\" height=\"16\" width=\"16\"></td>";
                 }
                 else
                 {
-                    tblSujets.Text += "<td width=\"5%\"></td>";
+                    tblSujets.Text += "<td width=\"3%\"></td>";
                 }
-                tblSujets.Text += "<td width=\"55%\"><a href=\"Messages.aspx?ID=" + dataReader[0].ToString() + "\">" + (string)dataReader[1] + "</a></td>"; // Lien
+                tblSujets.Text += "<td width=\"57%\"><a href=\"Messages.aspx?ID=" + dataReader[0].ToString() + "\">" + (string)dataReader[1] + "</a></td>"; // Lien
                 tblSujets.Text += "<td width=\"20%\">" + (string)dataReader[2] + "</td>";
                 tblSujets.Text += "<td width=\"20%\">" + dataReader[3].ToString() + "</td>";
                 tblSujets.Text += "</tr>";
