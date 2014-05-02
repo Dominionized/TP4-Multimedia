@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
+using System.IO;
 
 using System.Data.OleDb;
 
@@ -47,17 +49,18 @@ namespace TP4_Multimedia
         {
             if (IsValid)
             {
-                string fileExtension = fuNouvelAvatar.FileName.Substring(fuNouvelAvatar.FileName.LastIndexOf(".") + 1);
+                string fileExtension = Path.GetFileName(fuNouvelAvatar.PostedFile.FileName);
                 string filenameAvatar = (string)Session["nomUtilisateur"] + DateTime.Now.ToString("yyyyMMddhhmmss") + "." + fileExtension;
-                string savePath = MapPath("~/avatars/") + filenameAvatar;
+                string savePath = Server.MapPath("~/avatars/" + filenameAvatar);
                 fuNouvelAvatar.SaveAs(savePath);
 
                 OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
                 connection.Open();
 
                 OleDbCommand command = new OleDbCommand("UPDATE utilisateurs SET avatar=@nouvelavatar WHERE pseudonyme=@pseudonyme", connection);
-                command.Parameters.Add(new OleDbParameter("pseudonyme", (string)Session["nomUtilisateur"]) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Parameters.Add(new OleDbParameter("nouvelavatar", filenameAvatar) { OleDbType = OleDbType.VarChar, Size = 255 });
+                command.Parameters.Add(new OleDbParameter("pseudonyme", (string)Session["nomUtilisateur"]) { OleDbType = OleDbType.VarChar, Size = 255 });
+                command.Prepare();
 
                 connection.Close();
 
