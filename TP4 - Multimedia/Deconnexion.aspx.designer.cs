@@ -11,23 +11,5 @@ namespace TP4_Multimedia {
     
     
     public partial class WebForm5 {
-        
-        /// <summary>
-        /// lblNomUtilisateur control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNomUtilisateur;
-        
-        /// <summary>
-        /// btnDeconnexion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeconnexion;
     }
 }

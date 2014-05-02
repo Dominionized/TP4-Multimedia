@@ -11,13 +11,8 @@ namespace TP4_Multimedia
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblNomUtilisateur.Text = (string)Session["nomUtilisateur"];
-        }
-
-        protected void btnDeconnexion_Click(object sender, EventArgs e)
-        {
             Session.Clear();
-            Response.Redirect("Accueil.aspx");
+            Response.AddHeader("REFRESH", "3;URL=Accueil.aspx"); 
         }
     }
 }
