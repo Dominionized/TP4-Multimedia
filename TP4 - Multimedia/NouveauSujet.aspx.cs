@@ -17,7 +17,7 @@ namespace TP4_Multimedia
         {
             if (Session["Courriel"] == null)
             {
-                Response.Redirect("Connexion.aspx");
+                Response.Redirect("Connexion.aspx?Redirect=NouveauSujet.aspx");
             }
         }
 
