@@ -40,8 +40,10 @@ namespace TP4_Multimedia
                 connection.Close();
 
                 Session["Courriel"] = txtCourriel.Text;
-
-                Response.Redirect("Accueil.aspx");
+                if (Request["Redirect"] != null)
+                {
+                    Response.Redirect(Request["Redirect"]);
+                }
             }
         }
 
