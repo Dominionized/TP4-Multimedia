@@ -14,7 +14,7 @@ namespace TP4_Multimedia
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnConnect_Click(object sender, EventArgs e)
