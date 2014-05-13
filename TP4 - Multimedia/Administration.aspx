@@ -11,7 +11,7 @@
                 <asp:BoundField DataField="adresse_courriel" ReadOnly="true" HeaderText="Email" SortExpression="adresse_courriel" />
                 <asp:CheckBoxField DataField="admin" HeaderText="Administrateur" SortExpression="admin" />
                 <asp:CheckBoxField DataField="modo" HeaderText="Modérateur" SortExpression="modo" />
-                <asp:CheckBoxField DataField="banned" HeaderText="Banni" SortExpression="banned" />
+                <asp:CheckBoxField DataField="banned" HeaderText="Bannir" SortExpression="banned" />
                 <asp:CommandField HeaderText="Modifier" ShowEditButton="True" ControlStyle-Width="125px"/>
             </Columns>
         </asp:GridView>

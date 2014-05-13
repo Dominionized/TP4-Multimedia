@@ -44,6 +44,10 @@ namespace TP4_Multimedia
                 {
                     Response.Redirect(Request["Redirect"]);
                 }
+                else
+                {
+                    Response.Redirect("Accueil.aspx");
+                }
             }
         }
 
