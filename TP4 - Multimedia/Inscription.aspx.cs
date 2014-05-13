@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
+using System.IO;
 
 // Nécéssaire pour pouvoir effectuer des requêtes à la base de données.
 using System.Data.OleDb;
@@ -26,15 +28,14 @@ namespace TP4_Multimedia
                 string filenameAvatar;
                 if (fuAvatar.HasFile)
                 {
-                    string fileExtension = fuAvatar.FileName.Substring(fuAvatar.FileName.LastIndexOf(".") + 1);
+                    string fileExtension = Path.GetFileName(fuAvatar.PostedFile.FileName);
                     filenameAvatar = txtInscriptionPseudo.Text + DateTime.Now.ToString("yyyyMMddhhmmss") + "." + fileExtension;
                 }
                 else
                 {
-                    filenameAvatar = "default.gif";
+                    filenameAvatar = "default_avatar_big.png";
                 }
-                string savePath = MapPath("~/avatars/") + filenameAvatar;
-                fuAvatar.SaveAs(savePath);
+                fuAvatar.SaveAs(Server.MapPath("~/avatars/" + filenameAvatar));
 
                 OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
                 connection.Open();
@@ -55,9 +56,10 @@ namespace TP4_Multimedia
         {
             if (fuAvatar.HasFile)
             {
+                System.Drawing.Image image = null;
                 try
                 {
-                    System.Drawing.Image image = System.Drawing.Image.FromStream(fuAvatar.FileContent);
+                    image = System.Drawing.Image.FromStream(fuAvatar.PostedFile.InputStream);
                     if (image.Height != 180 || image.Width != 180)
                     {
                         args.IsValid = false;
