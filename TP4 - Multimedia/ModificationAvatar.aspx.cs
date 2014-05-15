@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
+using System.IO;
 
 using System.Data.OleDb;
 
@@ -25,12 +27,12 @@ namespace TP4_Multimedia
 
         protected void validerNouvelAvatar_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            args.IsValid = fuNouvelAvatar.HasFile;
-            if (args.IsValid)
+            args.IsValid = true;
+            if (fuNouvelAvatar.HasFile)
             {
                 try
                 {
-                    System.Drawing.Image image = System.Drawing.Image.FromStream(fuNouvelAvatar.FileContent);
+                    System.Drawing.Image image = System.Drawing.Image.FromStream(fuNouvelAvatar.PostedFile.InputStream);
                     if (image.Height != 180 || image.Width != 180)
                     {
                         args.IsValid = false;
@@ -38,7 +40,7 @@ namespace TP4_Multimedia
                 }
                 catch
                 {
-                    args.IsValid = false;
+
                 }
             }
         }
@@ -47,21 +49,32 @@ namespace TP4_Multimedia
         {
             if (IsValid)
             {
-                string fileExtension = fuNouvelAvatar.FileName.Substring(fuNouvelAvatar.FileName.LastIndexOf(".") + 1);
-                string filenameAvatar = (string)Session["nomUtilisateur"] + DateTime.Now.ToString("yyyyMMddhhmmss") + "." + fileExtension;
-                string savePath = MapPath("~/avatars/") + filenameAvatar;
-                fuNouvelAvatar.SaveAs(savePath);
+                string fileExtension = Path.GetFileName(fuNouvelAvatar.PostedFile.FileName);
+                string filenameAvatar = "";
+
+                if (fuNouvelAvatar.HasFile)
+                {
+                    filenameAvatar = (string)Session["nomUtilisateur"] + DateTime.Now.ToString("yyyyMMddhhmmss") + "." + fileExtension;
+                    fuNouvelAvatar.SaveAs(Server.MapPath("~/avatars/" + filenameAvatar));
+                }
+                else
+                {
+                    filenameAvatar = "default_avatar_big.png";
+                }
+
+
 
                 OleDbConnection connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["tp3Database"].ConnectionString);
                 connection.Open();
 
                 OleDbCommand command = new OleDbCommand("UPDATE utilisateurs SET avatar=@nouvelavatar WHERE pseudonyme=@pseudonyme", connection);
-                command.Parameters.Add(new OleDbParameter("pseudonyme", (string)Session["nomUtilisateur"]) { OleDbType = OleDbType.VarChar, Size = 255 });
                 command.Parameters.Add(new OleDbParameter("nouvelavatar", filenameAvatar) { OleDbType = OleDbType.VarChar, Size = 255 });
-
+                command.Parameters.Add(new OleDbParameter("pseudonyme", (string)Session["nomUtilisateur"]) { OleDbType = OleDbType.VarChar, Size = 255 });
+                command.Prepare();
+                command.ExecuteNonQuery();
                 connection.Close();
 
-                Session["pathAvatar"] = "avatars/" + filenameAvatar;
+                Session["pathAvatar"] = "~/avatars/" + filenameAvatar;
                 Server.Transfer("ConfirmationChangementAvatar.aspx");
             }
         }
