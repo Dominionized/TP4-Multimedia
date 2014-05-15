@@ -10,6 +10,7 @@
     <div class="contentWrapper">
         <h1>
             <asp:Label runat="server" ID="lblTitreSujet"></asp:Label></h1>
+        <asp:Button ID="btnCloseSujet" runat="server" Text="Fermer le sujet" OnClick="btnCloseSujet_Click" CausesValidation="false" />
         <asp:Literal runat="server" ID="tblMessages"></asp:Literal>
 
 
@@ -23,7 +24,6 @@
 
             <%} %>
         </div>
-        <asp:Button ID="btnCloseSujet" runat="server" Text="Fermer le sujet" OnClick="btnCloseSujet_Click" CausesValidation="false" />
     </div>
     <%if (Request["NouveauMessage"] != null)
       { %>
