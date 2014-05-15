@@ -44,10 +44,13 @@ namespace TP4_Multimedia
                 {
                     Response.Redirect(Request["Redirect"]);
                 }
+<<<<<<< HEAD
                 else
                 {
                     Response.Redirect("Accueil.aspx");
                 }
+=======
+>>>>>>> origin/hot-fixes
             }
         }
 
