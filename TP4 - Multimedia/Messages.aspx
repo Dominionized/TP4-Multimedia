@@ -8,11 +8,9 @@
     </div>
 
     <div class="contentWrapper">
-        <h1>
-            <asp:Label runat="server" ID="lblTitreSujet"></asp:Label></h1>
-        <asp:Button ID="btnCloseSujet" runat="server" Text="Fermer le sujet" OnClick="btnCloseSujet_Click" CausesValidation="false" />
+        <h1><asp:Label runat="server" ID="lblTitreSujet"></asp:Label></h1>
+        <asp:Button ID="btnCloseSujet" runat="server" Text="Fermer le sujet" OnClick="btnCloseSujet_Click" CausesValidation="false" /><br /><br />
         <asp:Literal runat="server" ID="tblMessages"></asp:Literal>
-
 
         <div runat="server" id="messagePost">
             <% if (Session["Courriel"] != null)
@@ -21,7 +19,6 @@
             <asp:TextBox runat="server" TextMode="MultiLine" ID="txtNouveauMessage" Width="800" Height="300"></asp:TextBox><br />
             <asp:Button runat="server" ID="btnSubmitNouveauMessage" Text="Soumettre" OnClick="btnSubmitNouveauMessage_Click" /><br />
             <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNouveauMessage" ErrorMessage="Vous devez entrer un message."></asp:RequiredFieldValidator><br />
-
             <%} %>
         </div>
     </div>
