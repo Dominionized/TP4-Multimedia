@@ -206,6 +206,8 @@ textarea{
 
 .divNouvelle p{
     font-family: "Vollkorn", georgia, serif;
+    word-wrap: break-word;
+    -ms-word-wrap: break-word;
 }
 
 .divNouvelle date-auteur{
@@ -214,6 +216,8 @@ textarea{
 
 .article{
     font-family: "Vollkorn", georgia, serif;
+    word-wrap: break-word;
+    -ms-word-wrap: break-word; /* I hate IE...*/
     font-size: 20px;
     line-height: 150%;
     width: 800px;
