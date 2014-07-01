@@ -10,7 +10,7 @@
 namespace TP4_Multimedia {
     
     
-    public partial class WebForm9 {
+    public partial class WebForm11 {
         
         /// <summary>
         /// Contrôle grdAdmin.

@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace TP4_Multimedia
 {
-    public partial class WebForm9 : System.Web.UI.Page
+    public partial class Article : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
