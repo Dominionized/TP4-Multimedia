@@ -7,8 +7,9 @@
         <h1>Nouvelles</h1>
         <%if (Session["Courriel"] != null && (bool)Session["Moderateur"] == true) // Si l'utilisateur est un modo
           { %>
-        <asp:Button runat="server" ID="btnAjouterNouvelle" Text="Ajouter une nouvelle" /><br />
+        <asp:Button runat="server" ID="btnAjouterNouvelle" Text="Ajouter une nouvelle" OnClick="btnAjouterNouvelle_Click" /><br /><br />
         <%} %>
-        <asp:Literal runat="server" ID="tblNouvelles"></asp:Literal>
+
+        <asp:Literal runat="server" ID="conteneurNouvelles"></asp:Literal>
     </div>
 </asp:Content>

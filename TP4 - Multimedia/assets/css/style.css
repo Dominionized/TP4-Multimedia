@@ -1,4 +1,6 @@
-﻿body{
+﻿@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+
+body{
     margin: 0;
     font-family: "Helvetica Neue", "Helvetica Neue LT Com", helvetica, arial, sansserif;
 }
@@ -182,4 +184,37 @@ textarea{
     height: 50px;
     line-height: 50px;
     opacity: 0.8;
+}
+
+.divNouvelle{
+    background-color: #e6e6e6;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.divNouvelle img, img.article{
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+}
+
+.divNouvelle h3{
+    line-height: 20px;
+}
+
+.divNouvelle p{
+    font-family: "Vollkorn", georgia, serif;
+}
+
+.divNouvelle date-auteur{
+    line-height: 1.5em;
+}
+
+p.article{
+    font-family: "Vollkorn", georgia, serif;
+    font-size: 20px;
+    line-height: 150%;
+    width: 700px;
+    color: #2c2c2c;
 }

@@ -78,6 +78,8 @@
     <Content Include="Messages.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="Administration.aspx" />
+    <Content Include="Article.aspx" />
+    <Content Include="AjouterNouvelle.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -188,6 +190,19 @@
     </Compile>
     <Compile Include="Administration.aspx.designer.cs">
       <DependentUpon>Administration.aspx</DependentUpon>
+    <Compile Include="Article.aspx.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article.aspx.designer.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterNouvelle.aspx.cs">
+      <DependentUpon>AjouterNouvelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjouterNouvelle.aspx.designer.cs">
+      <DependentUpon>AjouterNouvelle.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
