@@ -77,6 +77,7 @@
     <Content Include="ModificationAvatar.aspx" />
     <Content Include="Messages.aspx" />
     <Content Include="Nouvelles.aspx" />
+    <Content Include="Administration.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,6 +181,13 @@
     </Compile>
     <Compile Include="Nouvelles.aspx.designer.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration.aspx.cs">
+      <DependentUpon>Administration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration.aspx.designer.cs">
+      <DependentUpon>Administration.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
